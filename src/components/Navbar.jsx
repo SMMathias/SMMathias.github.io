@@ -1,21 +1,46 @@
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
+import ScrollProgress from "./ScrollProgress";
+
+const NAV_ITEMS = [
+  { id: "arbejde", label: "Arbejde" },
+  { id: "vaerktoejer", label: "Værktøjer" },
+  { id: "kontakt", label: "Kontakt" },
+];
 
 function Navbar() {
-  return (
-    <header className="site-header">
-      <NavLink className="brand" to="/">
-        Dit Navn
-      </NavLink>
+  const { pathname } = useLocation();
+  const onHome = pathname === "/";
 
-      <nav className="site-nav" aria-label="Primær navigation">
-        <NavLink to="/" end>
-          Forside
-        </NavLink>
-        <NavLink to="/projects">Projekter</NavLink>
-        <NavLink to="/about">Om mig</NavLink>
-        <NavLink to="/contact">Kontakt</NavLink>
-      </nav>
-    </header>
+  return (
+    <>
+      <ScrollProgress />
+
+      <header className="site-header">
+        {onHome ? (
+          <a className="brand" href="#top">
+            Mathias Skyum Moeslund
+          </a>
+        ) : (
+          <NavLink className="brand" end to="/">
+            Mathias Skyum Moeslund
+          </NavLink>
+        )}
+
+        <nav aria-label="Primær navigation" className="site-nav">
+          {NAV_ITEMS.map((item) =>
+            onHome ? (
+              <a href={`#${item.id}`} key={item.id}>
+                {item.label}
+              </a>
+            ) : (
+              <NavLink key={item.id} to={`/#${item.id}`}>
+                {item.label}
+              </NavLink>
+            ),
+          )}
+        </nav>
+      </header>
+    </>
   );
 }
 

@@ -7,47 +7,73 @@ function ProjectPage() {
 
   if (!project) {
     return (
-      <div className="page narrow">
-        <p className="eyebrow">404</p>
-        <h1>Projektet blev ikke fundet</h1>
-        <p>Det projekt findes ikke i listen endnu.</p>
-        <Link className="button" to="/projects">
-          Tilbage til projekter
-        </Link>
+      <div className="page">
+        <p className="kicker">404</p>
+        <h1>Projekt ikke fundet</h1>
+        <p className="lead">Det projekt findes ikke i listen endnu.</p>
+        <div className="detail-actions">
+          <Link className="button solid" to="/projects">
+            Tilbage til arbejdet
+          </Link>
+        </div>
       </div>
     );
   }
 
+  const media = project.media;
+
   return (
-    <article className="page narrow">
+    <article className="page">
       <Link className="back-link" to="/projects">
-        Tilbage til projekter
+        ← Tilbage til arbejdet
       </Link>
 
-      <img className="detail-image" src={project.image} alt="" />
-      <p className="eyebrow">{project.year}</p>
+      <p className="kicker">
+        {project.tags.join(" · ")} · {project.year}
+      </p>
       <h1>{project.title}</h1>
-      <p className="lead">{project.description}</p>
+      <p className="case-detail-text">{project.description}</p>
 
-      <ul className="tag-list">
+      <div className="tag-list">
         {project.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-
-      <div className="actions">
-        {project.links.map((link) => (
-          <a
-            className="button secondary"
-            href={link.href}
-            key={link.href}
-            rel="noreferrer"
-            target="_blank"
-          >
-            {link.label}
-          </a>
+          <span className="tag" key={tag}>
+            {tag}
+          </span>
         ))}
       </div>
+
+      {project.links.length ? (
+        <div className="detail-actions">
+          {project.links.map((link) => (
+            <a
+              className="button solid"
+              href={link.href}
+              key={link.href}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {link.label} ↗
+            </a>
+          ))}
+        </div>
+      ) : null}
+
+      {media ? (
+        <div className="detail-media">
+          {media.type === "cover" ? (
+            <div className="case-media cover">
+              <img alt={media.alt} src={media.src} />
+              {media.logo ? (
+                <img alt={media.logoAlt} className="cover-logo" src={media.logo} />
+              ) : null}
+            </div>
+          ) : (
+            <div className="case-media">
+              <img alt={media.alt} src={media.src} />
+            </div>
+          )}
+        </div>
+      ) : null}
     </article>
   );
 }

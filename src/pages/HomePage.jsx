@@ -1,48 +1,21 @@
-import { Link } from "react-router";
-import projects from "../data/projects";
+import { useState } from "react";
+import ContactSection from "../components/ContactSection";
+import Hero from "../components/Hero";
+import ToolsSection from "../components/ToolsSection";
+import WorkSection from "../components/WorkSection";
+import { shouldPlayIntro } from "../introState";
 
 function HomePage() {
-  const featuredProjects = projects.slice(0, 2);
+  /* Spiller introen lige nu (første indlæsning), venter hero-animationerne
+     på den; ellers starter de næsten med det samme. */
+  const [introActive] = useState(() => shouldPlayIntro());
 
   return (
-    <div className="page">
-      <section className="hero-section">
-        <p className="eyebrow">Portfolio</p>
-        <h1>Hej, jeg hedder Dit Navn.</h1>
-        <p className="hero-text">
-          Jeg arbejder med frontend, design og digitale produkter. Her samler
-          jeg projekter, proces og det, jeg lærer undervejs.
-        </p>
-        <div className="actions">
-          <Link className="button" to="/projects">
-            Se projekter
-          </Link>
-          <Link className="button secondary" to="/contact">
-            Kontakt mig
-          </Link>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-heading">
-          <p className="eyebrow">Udvalgte projekter</p>
-          <h2>Start med få projekter og gør dem stærke.</h2>
-        </div>
-
-        <div className="project-grid">
-          {featuredProjects.map((project) => (
-            <article className="project-card" key={project.slug}>
-              <img src={project.image} alt={`Preview af ${project.title}`} />
-              <div className="project-card-content">
-                <p className="eyebrow">{project.year}</p>
-                <h3>{project.title}</h3>
-                <p>{project.summary}</p>
-                <Link to={`/projects/${project.slug}`}>Læs mere</Link>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+    <div className={introActive ? undefined : "no-intro"}>
+      <Hero />
+      <WorkSection />
+      <ToolsSection />
+      <ContactSection />
     </div>
   );
 }

@@ -1,39 +1,50 @@
+// Billeder: læg filen i public/ og sæt src til `${import.meta.env.BASE_URL}filnavn.webp`
 const projects = [
   {
-    slug: "portfolio",
-    title: "Portfolio",
-    year: "2026",
-    summary: "En personlig portfolio bygget med React, Vite og GitHub Pages.",
+    slug: "bettor",
+    title: "Bettor",
+    year: "2025",
+    summary:
+      "Social app hvor venner holder styr på indbyrdes væddemål og gør op bagefter.",
     description:
-      "Portfolioen viser udvalgte projekter og fungerer som et udgangspunkt for at arbejde med komponenter, routing, styling og deployment.",
-    tags: ["React", "Vite", "GitHub Pages"],
-    image: `${import.meta.env.BASE_URL}portfolio-placeholder.svg`,
+      "Social app hvor venner holder styr på indbyrdes væddemål og gør op bagefter. Eksamensprojekt på 2. semester, som jeg fortsatte med efter eksamen: koncept, flere runder på hjem- og vennefanen, UI og build i React og Supabase.",
+    tags: ["React", "Supabase"],
+    image: `${import.meta.env.BASE_URL}bettor-plakat.png`,
     links: [
       {
-        label: "Live site",
-        href: "https://username.github.io",
-      },
-      {
-        label: "GitHub repo",
-        href: "https://github.com/username/username.github.io",
+        label: "Repo",
+        href: "https://github.com/Magecties/bettor-eksamen-2-semester",
       },
     ],
+    media: {
+      type: "poster",
+      src: `${import.meta.env.BASE_URL}bettor-plakat.png`,
+      alt: "Bettor — eksamensplakat med research, UX/UI og kode",
+    },
   },
   {
-    slug: "case-study",
-    title: "Case study",
-    year: "2026",
-    summary: "Et projektkort, som du kan kopiere og ændre til dit eget projekt.",
+    slug: "wanted-archives",
+    title: "Wanted Archives",
+    year: "2025",
+    summary:
+      "Tøjbutik i Zalando-format fra 2. semester, hvor vi solgte “wanted” pieces.",
     description:
-      "Beskriv problemet, processen, din rolle, de vigtigste valg og hvad du lærte. Gør projektet konkret, så andre kan forstå dit arbejde.",
-    tags: ["Design", "Frontend", "Proces"],
-    image: `${import.meta.env.BASE_URL}portfolio-placeholder.svg`,
+      "Tøjbutik i Zalando-format fra 2. semester, hvor vi solgte “wanted” pieces. Størstedelen af arbejdet lå i den visuelle identitet og brandingen omkring butikken — navn, tone, farver, typografi og selve shopfladen.",
+    tags: ["Identitet", "Branding"],
+    image: `${import.meta.env.BASE_URL}wanted-kampagne.jpg`,
     links: [
       {
-        label: "Eksempel-link",
-        href: "https://github.com",
+        label: "Repo",
+        href: "https://github.com/Magecties/customer-experience-exam",
       },
     ],
+    media: {
+      type: "cover",
+      src: `${import.meta.env.BASE_URL}wanted-kampagne.jpg`,
+      alt: "Wanted Archives — kampagnebillede",
+      logo: `${import.meta.env.BASE_URL}wanted-logo.svg`,
+      logoAlt: "Wanted-logo",
+    },
   },
 ];
 
