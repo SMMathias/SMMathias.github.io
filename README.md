@@ -495,3 +495,5 @@ Tjek:
 - at `slug` ikke har mellemrum
 - at projektet findes i `src/data/projects.js`
 - at du har skiftet `username` ud med dit eget GitHub-brugernavn i links
+
+Lige lidt ekstra for at committe igen
