@@ -1,51 +1,44 @@
 // Billeder: læg filen i public/ og sæt src til `${import.meta.env.BASE_URL}filnavn.webp`
+// Selve case-teksten ligger i src/content/case-studies/ — her er kun det,
+// som kort, søgning og overblikstabeller har brug for.
 const projects = [
   {
     slug: "bettor",
     title: "Bettor",
-    year: "2025",
+    semester: "2. semester",
     summary:
-      "Social app hvor venner holder styr på indbyrdes væddemål og gør op bagefter.",
-    description:
-      "Social app hvor venner holder styr på indbyrdes væddemål og gør op bagefter. Eksamensprojekt på 2. semester, som jeg fortsatte med efter eksamen: koncept, flere runder på hjem- og vennefanen, UI og build i React og Supabase.",
-    tags: ["React", "Supabase"],
+      "Social challenge-app, hvor venner holder styr på indbyrdes væddemål — og gør op bagefter.",
+    tags: ["React", "Supabase", "UX/UI"],
     image: `${import.meta.env.BASE_URL}bettor-plakat.png`,
+    imageAlt: "Bettor — eksamensplakat med research, UX/UI og kode",
     links: [
       {
         label: "Repo",
         href: "https://github.com/Magecties/bettor-eksamen-2-semester",
       },
     ],
-    media: {
-      type: "poster",
-      src: `${import.meta.env.BASE_URL}bettor-plakat.png`,
-      alt: "Bettor — eksamensplakat med research, UX/UI og kode",
-    },
   },
   {
     slug: "wanted-archives",
     title: "Wanted Archives",
-    year: "2025",
+    semester: "2. semester",
     summary:
-      "Tøjbutik i Zalando-format fra 2. semester, hvor vi solgte “wanted” pieces.",
-    description:
-      "Tøjbutik i Zalando-format fra 2. semester, hvor vi solgte “wanted” pieces. Størstedelen af arbejdet lå i den visuelle identitet og brandingen omkring butikken — navn, tone, farver, typografi og selve shopfladen.",
+      "Tøjbutik i Zalando-format, hvor vi solgte “wanted” pieces. Fokus på visuel identitet og branding.",
     tags: ["Identitet", "Branding"],
     image: `${import.meta.env.BASE_URL}wanted-kampagne.jpg`,
+    imageAlt: "Wanted Archives — kampagnebillede",
+    logo: `${import.meta.env.BASE_URL}wanted-logo.svg`,
     links: [
       {
         label: "Repo",
         href: "https://github.com/Magecties/customer-experience-exam",
       },
     ],
-    media: {
-      type: "cover",
-      src: `${import.meta.env.BASE_URL}wanted-kampagne.jpg`,
-      alt: "Wanted Archives — kampagnebillede",
-      logo: `${import.meta.env.BASE_URL}wanted-logo.svg`,
-      logoAlt: "Wanted-logo",
-    },
   },
 ];
+
+export function getProject(slug) {
+  return projects.find((project) => project.slug === slug);
+}
 
 export default projects;
