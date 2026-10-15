@@ -77,7 +77,7 @@ function DocPage({ page }) {
       <footer className="doc-footer">
         <PageNav path={page.path} />
         <div className="site-footer">
-          <span>© 2026 {SITE_NAME} · Bygget i React, deployet på GitHub Pages</span>
+          <span>© 2026 {SITE_NAME}</span>
           <span className="site-footer-links">
             <a aria-label="Mail" className="icon-button" href="mailto:mathias08102004@gmail.com">
               <Icon name="mail" size={16} />
