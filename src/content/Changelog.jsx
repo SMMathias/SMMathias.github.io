@@ -10,6 +10,22 @@ function Changelog() {
         <Changes>
           <Change>Designer & builder hos Strømm i Aarhus — fra spec til deployet produkt.</Change>
           <Change>3. semester på Multimediedesign, EAAA.</Change>
+          <Change>
+            <Link to="/case-studies/mellemrum">Mellemrum</Link> — overtog en React-prototype,
+            auditerede den og fik tilmelding, datamodel og deploy til at virke.
+          </Change>
+          <Change>
+            <Link to="/case-studies/vuuh">Vuuh onboarding</Link> — UX-audit og redesign af
+            onboardingen for en rigtig kunde.
+          </Change>
+          <Change>
+            <Link to="/case-studies/again-by-la-rouge">AGAIN by LA RŌUGE</Link> —
+            re-commerce-subbrand med brand, tone og køb- og sælgerflow.
+          </Change>
+          <Change>
+            Nye metoder i værktøjskassen: teknisk audit, heuristisk evaluering, cognitive
+            walkthrough og brandarkitektur.
+          </Change>
           <Change>Første version af porteføljen gik i luften i august 2026.</Change>
           <Change type="Ændret">
             Porteføljen er bygget om fra bunden som dokumentation, med quickstart, case

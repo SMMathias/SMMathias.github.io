@@ -41,8 +41,9 @@ mathias.location; // "Aarhus, Danmark"
 
         <Step title="Se arbejdet">
           <p>
-            Den hurtigste vej ind er case studies. Bettor viser hele vejen fra research
-            over UX til kode; Wanted Archives handler om identitet og branding.
+            Den hurtigste vej ind er case studies. Mellemrum viser, hvordan jeg overtager
+            og færdiggør kode; Vuuh er UX-audit og redesign for en rigtig kunde; AGAIN er
+            brand og prototype. Bettor viser hele vejen fra research over UX til kode.
           </p>
           <CardGroup cols={2}>
             {projects.map((project) => (

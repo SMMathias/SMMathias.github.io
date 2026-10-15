@@ -8,6 +8,7 @@ import {
   Flow,
   H2,
   H3,
+  LinkList,
   Stat,
   Stats,
   Swatches,
@@ -26,11 +27,7 @@ function Bettor() {
         <Fact label="Målgruppe">16–25 år</Fact>
         <Fact label="Stack">React, Supabase, Figma, Lottie</Fact>
         <Fact label="Links">
-          {project.links.map((link) => (
-            <a href={link.href} key={link.href} rel="noopener noreferrer" target="_blank">
-              {link.label} ↗
-            </a>
-          ))}
+          <LinkList links={project.links} />
         </Fact>
       </Facts>
 

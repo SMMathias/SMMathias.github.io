@@ -49,6 +49,19 @@ export function Fact({ label, children }) {
   );
 }
 
+/* Eksterne links til en case — i Facts og i overbliktabellen. */
+export function LinkList({ links }) {
+  return (
+    <span className="link-list">
+      {links.map((link) => (
+        <a href={link.href} key={link.href} rel="noopener noreferrer" target="_blank">
+          {link.label} ↗
+        </a>
+      ))}
+    </span>
+  );
+}
+
 export function Stats({ children }) {
   return <dl className="stats">{children}</dl>;
 }
@@ -90,21 +103,46 @@ export function Swatches({ colors }) {
 }
 
 /* zoom: billedet linker til den fulde fil — godt til plakater med småt tekst. */
-export function Figure({ src, alt, caption, zoom = false, width, height }) {
+function Frame({ src, alt, width, height, zoom = false }) {
   const image = <img alt={alt} height={height} loading="lazy" src={src} width={width} />;
 
+  if (zoom) {
+    return (
+      <a className="figure-frame zoomable" href={src} rel="noopener" target="_blank">
+        {image}
+        <span className="figure-zoom">
+          Åbn i fuld størrelse <Icon name="arrow-up-right" size={13} />
+        </span>
+      </a>
+    );
+  }
+
+  return <div className="figure-frame">{image}</div>;
+}
+
+export function Figure({ caption, ...image }) {
   return (
     <figure className="figure">
-      {zoom ? (
-        <a className="figure-frame zoomable" href={src} rel="noopener" target="_blank">
-          {image}
-          <span className="figure-zoom">
-            Åbn i fuld størrelse <Icon name="arrow-up-right" size={13} />
-          </span>
-        </a>
-      ) : (
-        <div className="figure-frame">{image}</div>
-      )}
+      <Frame {...image} />
+      {caption ? <figcaption>{caption}</figcaption> : null}
+    </figure>
+  );
+}
+
+/* Flere billeder med én fælles billedtekst. Hvert billede kan få en label
+   over sig, fx »Før« og »Efter«. cols={1} stabler dem — til før/efter-par,
+   hvor billederne er for brede til at stå side om side. */
+export function Gallery({ items, caption, cols = 2, zoom = false }) {
+  return (
+    <figure className="figure">
+      <div className="gallery" style={{ "--cols": cols }}>
+        {items.map(({ label, ...image }) => (
+          <div key={image.src}>
+            {label ? <span className="gallery-label">{label}</span> : null}
+            <Frame zoom={zoom} {...image} />
+          </div>
+        ))}
+      </div>
       {caption ? <figcaption>{caption}</figcaption> : null}
     </figure>
   );

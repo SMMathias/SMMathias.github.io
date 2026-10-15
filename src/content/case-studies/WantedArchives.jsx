@@ -1,4 +1,4 @@
-import { Fact, Facts, Flow, H2 } from "../../components/docs";
+import { Fact, Facts, Flow, H2, LinkList } from "../../components/docs";
 import { getProject } from "../../data/projects";
 
 const project = getProject("wanted-archives");
@@ -11,11 +11,7 @@ function WantedArchives() {
         <Fact label="Kontekst">Gruppeprojekt, 2. semester</Fact>
         <Fact label="Fokus">Visuel identitet og branding</Fact>
         <Fact label="Links">
-          {project.links.map((link) => (
-            <a href={link.href} key={link.href} rel="noopener noreferrer" target="_blank">
-              {link.label} ↗
-            </a>
-          ))}
+          <LinkList links={project.links} />
         </Fact>
       </Facts>
 

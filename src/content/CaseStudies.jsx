@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Card, CardGroup, H2, TableWrap } from "../components/docs";
+import { Card, CardGroup, H2, LinkList, TableWrap } from "../components/docs";
 import projects from "../data/projects";
 
 function CaseStudies() {
@@ -10,6 +10,7 @@ function CaseStudies() {
           <Card
             image={project.image}
             imageAlt={project.imageAlt}
+            imagePosition={project.imagePosition}
             key={project.slug}
             logo={project.logo}
             meta={[project.semester, ...project.tags]}
@@ -28,7 +29,7 @@ function CaseStudies() {
             <th>Projekt</th>
             <th>Semester</th>
             <th>Fokus</th>
-            <th>Kode</th>
+            <th>Links</th>
           </tr>
         </thead>
         <tbody>
@@ -40,11 +41,7 @@ function CaseStudies() {
               <td>{project.semester}</td>
               <td>{project.tags.join(", ")}</td>
               <td>
-                {project.links.map((link) => (
-                  <a href={link.href} key={link.href} rel="noopener noreferrer" target="_blank">
-                    {link.label} ↗
-                  </a>
-                ))}
+                <LinkList links={project.links} />
               </td>
             </tr>
           ))}

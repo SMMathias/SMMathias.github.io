@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Badge, BadgeList, CodeBlock, H2, TableWrap } from "../../components/docs";
+import { getProject } from "../../data/projects";
 
 const TOOLS = [
   { name: "React", use: "Komponenter og frontend", frequency: "Dagligt" },
@@ -17,13 +18,19 @@ const DISCIPLINES = [
 ];
 
 const METHODS = [
-  { name: "Value Proposition Canvas", phase: "Research" },
-  { name: "Closed tree sort", phase: "Research" },
-  { name: "Think aloud", phase: "Test" },
-  { name: "OOUX", phase: "UX" },
-  { name: "User flows", phase: "UX" },
-  { name: "Designsystem i Figma", phase: "UI" },
-  { name: "Lottie-animationer", phase: "UI" },
+  { name: "Teknisk audit", phase: "Analyse", project: "mellemrum" },
+  { name: "Heuristisk evaluering", phase: "Research", project: "vuuh" },
+  { name: "Cognitive walkthrough", phase: "Research", project: "vuuh" },
+  { name: "Desk research", phase: "Research", project: "again-by-la-rouge" },
+  { name: "Value Proposition Canvas", phase: "Research", project: "bettor" },
+  { name: "Closed tree sort", phase: "Research", project: "bettor" },
+  { name: "Think aloud", phase: "Test", project: "bettor" },
+  { name: "Accessibility-check", phase: "Test", project: "vuuh" },
+  { name: "OOUX", phase: "UX", project: "bettor" },
+  { name: "User flows", phase: "UX", project: "bettor" },
+  { name: "Brandarkitektur", phase: "Branding", project: "again-by-la-rouge" },
+  { name: "Designsystem i Figma", phase: "UI", project: "bettor" },
+  { name: "Lottie-animationer", phase: "UI", project: "bettor" },
 ];
 
 function Stack() {
@@ -59,15 +66,13 @@ function Stack() {
       <BadgeList items={DISCIPLINES} />
 
       <H2>Metoder i praksis</H2>
-      <p>
-        Metoder jeg har brugt i rigtige projekter — alle sammen fra{" "}
-        <Link to="/case-studies/bettor">Bettor</Link>.
-      </p>
+      <p>Metoder jeg har brugt i rigtige projekter — med casen, hvor de er i brug.</p>
       <TableWrap>
         <thead>
           <tr>
             <th>Metode</th>
             <th>Fase</th>
+            <th>Case</th>
           </tr>
         </thead>
         <tbody>
@@ -75,6 +80,11 @@ function Stack() {
             <tr key={method.name}>
               <td>{method.name}</td>
               <td>{method.phase}</td>
+              <td>
+                <Link to={`/case-studies/${method.project}`}>
+                  {getProject(method.project).title}
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>

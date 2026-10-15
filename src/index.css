@@ -1013,6 +1013,12 @@ a.card:hover .card-arrow {
   color: var(--amber);
 }
 
+.badge-red {
+  border-color: var(--red-border);
+  background: var(--red-soft);
+  color: var(--red);
+}
+
 .badge-list {
   display: flex;
   flex-wrap: wrap;
@@ -1371,8 +1377,10 @@ a.card:hover .card-arrow {
   border-bottom: 0;
 }
 
-.facts dd a + a {
-  margin-left: 14px;
+.link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
 }
 
 :where(.prose) :where(h2) + .facts,
@@ -1530,6 +1538,21 @@ a.card:hover .card-arrow {
   color: var(--text-3);
   font-size: 13.5px;
   text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+  align-items: start;
+  gap: 18px 14px;
+}
+
+.gallery-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 12px;
 }
 
 .media-pair {
@@ -2152,7 +2175,8 @@ a.card:hover .card-arrow {
   }
 
   .card-group,
-  .media-pair {
+  .media-pair,
+  .gallery {
     grid-template-columns: minmax(0, 1fr);
   }
 

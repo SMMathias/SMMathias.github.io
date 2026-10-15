@@ -3,7 +3,10 @@ import Changelog from "./content/Changelog";
 import Introduction from "./content/Introduction";
 import NotFound from "./content/NotFound";
 import Quickstart from "./content/Quickstart";
+import AgainByLaRouge from "./content/case-studies/AgainByLaRouge";
 import Bettor from "./content/case-studies/Bettor";
+import Mellemrum from "./content/case-studies/Mellemrum";
+import Vuuh from "./content/case-studies/Vuuh";
 import WantedArchives from "./content/case-studies/WantedArchives";
 import Contact, { ContactExample } from "./content/reference/Contact";
 import Profile, { ProfileExample } from "./content/reference/Profile";
@@ -49,6 +52,30 @@ const GROUPS = [
           "Udvalgte projekter fra Multimediedesign på EAAA — fra brief til færdigt resultat.",
         component: CaseStudies,
         keywords: "projekter arbejde portfolio",
+      },
+      {
+        path: "/case-studies/mellemrum",
+        title: "Mellemrum",
+        description: getProject("mellemrum").summary,
+        component: Mellemrum,
+        keywords:
+          "react supabase teknisk audit findings refaktorering migration fremmednøgle deploy github pages css modules kultur events aarhus",
+      },
+      {
+        path: "/case-studies/vuuh",
+        title: "Vuuh onboarding",
+        description: getProject("vuuh").summary,
+        component: Vuuh,
+        keywords:
+          "ux audit heuristisk evaluering cognitive walkthrough onboarding shopify figma prototype lottie accessibility kunde",
+      },
+      {
+        path: "/case-studies/again-by-la-rouge",
+        title: "AGAIN by LA RŌUGE",
+        description: getProject("again-by-la-rouge").summary,
+        component: AgainByLaRouge,
+        keywords:
+          "la rouge subbrand brandarkitektur re-commerce secondhand brugt tøj mode identitet tone figma prototype pitch",
       },
       {
         path: "/case-studies/bettor",

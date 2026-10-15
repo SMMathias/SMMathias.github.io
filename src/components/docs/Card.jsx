@@ -10,12 +10,28 @@ export function CardGroup({ cols = 2, children }) {
   );
 }
 
-export function Card({ title, icon, to, href, image, imageAlt, logo, meta, children }) {
+export function Card({
+  title,
+  icon,
+  to,
+  href,
+  image,
+  imageAlt,
+  imagePosition,
+  logo,
+  meta,
+  children,
+}) {
   const body = (
     <>
       {image ? (
         <div className="card-image">
-          <img alt={imageAlt ?? ""} loading="lazy" src={image} />
+          <img
+            alt={imageAlt ?? ""}
+            loading="lazy"
+            src={image}
+            style={imagePosition ? { objectPosition: imagePosition } : undefined}
+          />
           {logo ? <img alt="" className="card-logo" src={logo} /> : null}
         </div>
       ) : null}

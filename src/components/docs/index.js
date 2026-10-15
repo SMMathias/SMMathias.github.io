@@ -8,6 +8,8 @@ export {
   Facts,
   Figure,
   Flow,
+  Gallery,
+  LinkList,
   Stat,
   Stats,
   Swatches,
